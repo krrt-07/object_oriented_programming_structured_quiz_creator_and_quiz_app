@@ -1,18 +1,15 @@
-# make an infinite loop that will only stop if the user type "exit"
-# make a txt file that will store the Questions and Answers.
-with open("user_quiz.txt", "a") as file:
-    question_number = 0
+# Import the parent class from main menu (base) file, and create a child class for quiz creator.
+from quiz_main_menu_base import quiz_base
 
-    while True:
-        print("type (exit) if you want to stop adding question")
-
-        # ask for a Questions.
-        user_questions = input("Enter a Question: ")
-        question_number += 1
-
-        if user_questions == "exit":
-            print("You typed 'exit'. Exiting the quiz creator.")
-            break
+class quiz_creator(quiz_base):
+    def run(self):
+        question_number = 0
+        while True:
+            print("Type (exit) to stop adding questions.")
+            question = input("Enter a question: ")
+            if question.lower() == "exit":
+                print("Exiting quiz creator.")
+                break
 
         # ask for the possible answers in (A, B, C, D)
         choice_a = input("Enter a possible answer, A: ")
