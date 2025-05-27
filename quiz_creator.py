@@ -24,9 +24,8 @@ class quiz_creator(quiz_base):
             "D": input("Enter choice D: "),
         }
 
-    
         # input the correct answer.
-        correct_answer = input("Enter the correct answer(A, B, C, D): ")
+        correct = input("Enter the correct answer (A, B, C, D): ").upper()
 
     # add the question, possible answers, and the correct answer in a txt file.
         file.write(f"Question #{question_number}: {user_questions}\n")
