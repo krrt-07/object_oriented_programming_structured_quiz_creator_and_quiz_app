@@ -1,7 +1,7 @@
-# Import the parent class from main menu (base) file, and create a child class for quiz creator.
-from quiz_main_menu_base import quiz_base
 # for testing purposes.
 import sys
+# Import the parent class from main menu (base) file, and create a child class for quiz creator.
+from quiz_main_menu_base import quiz_base
 sys.dont_write_bytecode = True
 
 class quiz_creator(quiz_base):
