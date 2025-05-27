@@ -12,3 +12,8 @@ class quiz_base:
             file.write(f"D. {question_data['D']}\n")
             file.write(f"Correct Answer: {question_data['correct']}\n")
             file.write("\n")
+
+    # load questions from text file, open the file in read mode.
+    def load_questions(self):
+        with open(self.filename, "r") as file:
+            content = file.read().strip().split("\n\n")
