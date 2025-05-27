@@ -27,11 +27,15 @@ class quiz_creator(quiz_base):
         # input the correct answer.
         correct = input("Enter the correct answer (A, B, C, D): ").upper()
 
-    # add the question, possible answers, and the correct answer in a txt file.
-        file.write(f"Question #{question_number}: {user_questions}\n")
-        file.write(f"A. {choice_a}\n")
-        file.write(f"B. {choice_b}\n")
-        file.write(f"C. {choice_c}\n")
-        file.write(f"D. {choice_d}\n")
-        file.write(f"Correct Answer: {correct_answer}\n")
-        file.write("\n") # add space to seperate the Questions.
+        # save the question and answers to a text file.
+        data = {
+            "number": question_number,
+            "question": question,
+            "A": choices["A"],
+            "B": choices["B"],
+            "C": choices["C"],
+            "D": choices["D"],
+            "correct": correct
+        }
+
+        self.save_question(data)
