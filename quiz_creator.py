@@ -27,8 +27,13 @@ class quiz_creator(quiz_base):
                 "D": input("Enter choice D: "),
             }
 
-            # input the correct answer.
-            correct = input("Enter the correct answer (A, B, C, D): ").upper()
+            # input the correct answer only in A, B, C, or D only.
+            while True:
+                correct = input("Enter the correct answer (A, B, C, D): ").upper()
+                if correct in ["A", "B", "C", "D"]:
+                    break
+                else:
+                    print("Invalid input. Please enter A, B, C, or D only.")
 
             # save the question and answers to a text file.
             question_data = {
