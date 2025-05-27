@@ -3,14 +3,19 @@ from quiz_main_menu_base import quiz_base
 
 class quiz_creator(quiz_base):
     def run(self):
+        # initialize the quiz number to 0.
         question_number = 0
         while True:
             print("Type (exit) to stop adding questions.")
+            # ask questionand if the user wants to exit type "exit".
             question = input("Enter a question: ")
             if question.lower() == "exit":
                 print("Exiting quiz creator.")
                 break
 
+        # add 1 to the question number if the user type a question.
+        question_number += 1
+        
         # ask for the possible answers in (A, B, C, D)
         choice_a = input("Enter a possible answer, A: ")
         choice_b = input("Enter a possible answer, B: ")
