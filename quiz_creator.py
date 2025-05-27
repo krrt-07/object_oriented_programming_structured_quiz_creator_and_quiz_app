@@ -15,13 +15,16 @@ class quiz_creator(quiz_base):
 
         # add 1 to the question number if the user type a question.
         question_number += 1
-        
-        # ask for the possible answers in (A, B, C, D)
-        choice_a = input("Enter a possible answer, A: ")
-        choice_b = input("Enter a possible answer, B: ")
-        choice_c = input("Enter a possible answer, C: ")
-        choice_d = input("Enter a possible answer, D: ")
 
+        # ask the user to input the question.
+        choices = {
+            "A": input("Enter choice A: "),
+            "B": input("Enter choice B: "),
+            "C": input("Enter choice C: "),
+            "D": input("Enter choice D: "),
+        }
+
+    
         # input the correct answer.
         correct_answer = input("Enter the correct answer(A, B, C, D): ")
 
