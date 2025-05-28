@@ -38,7 +38,21 @@ class QuizApp(QuizBase):
 
         self.show_question()
 
-
+    def show_question(self):
+        if self.current_index < len(self.quiz_questions):
+            q = self.quiz_questions[self.current_index]
+            self.question_label.config(text=f"Q: {q['question']}")
+            for key in q["choices"]:
+                self.choice_buttons[key].config(text=f"{key}. {q['choices'][key]}", state=tk.NORMAL)
+            self.feedback.config(text="")
+            self.next_button.config(state=tk.DISABLED)
+        else:
+            self.question_label.config(text="🎉 Quiz Finished!")
+            for btn in self.choice_buttons.values():
+                btn.config(state=tk.DISABLED)
+            self.feedback.config(text=f"Final Score: {self.score}/{len(self.quiz_questions)}")
+            self.next_button.config(state=tk.DISABLED)
+            
 # make a condition that will get the questions and answers from the text file.
         try:
             # Extract question text, answer choices, and the correct answer
