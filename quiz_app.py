@@ -4,19 +4,6 @@ import tkinter as tk
 import random
 from quiz_main_menu_base import quiz_base
 
-# open the text file from Quiz Creator in read mode.
-def load_questions(filename="user_quiz.txt"):
-    with open(filename, "r") as file:
-        content = file.read().strip().split("\n\n")
-
-    quiz_questions = []
-    for question_block in content:
-        question_lines = question_block.strip().split("\n")
-
-        # Skip empty or malformed question blocks (must have at least 6 lines)
-        if len(question_lines) < 6:
-            print(f"Skipping invalid question block: {question_block}")
-            continue
 
 # make a condition that will get the questions and answers from the text file.
         try:
