@@ -2,9 +2,9 @@
 # make it randomize the questions.
 import tkinter as tk
 import random
-from quiz_main_menu_base import quiz
+from quiz_main_menu_base import quiz_base
 
-class QuizApp(QuizBase):
+class quiz_app(quiz_base):
     def __init__(self, master):
         super().__init__()  # Inherit filename
         self.master = master
@@ -70,9 +70,9 @@ class QuizApp(QuizBase):
     def next_question(self):
         self.current_index += 1
         self.show_question()
-        
+
 # Run the app
 if __name__ == "__main__":
     root = tk.Tk()
-    app = QuizApp(root)
+    app = quiz_app(root)
     root.mainloop()
