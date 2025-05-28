@@ -1,7 +1,8 @@
 # make the Quiz App.
 # make it randomize the questions.
 import tkinter as tk
-import random 
+import random
+from quiz_main_menu_base import quiz_base
 
 # open the text file from Quiz Creator in read mode.
 def load_questions(filename="user_quiz.txt"):
