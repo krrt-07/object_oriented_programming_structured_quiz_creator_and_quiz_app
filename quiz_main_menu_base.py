@@ -17,3 +17,29 @@ class quiz_base:
     def load_questions(self):
         with open(self.filename, "r") as file:
             content = file.read().strip().split("\n\n")
+
+        questions = []
+        for block in content:
+            lines = block.strip().split("\n")
+            if len(lines) < 6:
+                continue
+
+            try:
+                question = lines[0].split(": ", 1)[1]
+                choices = {
+                    "A": lines[1][3:],
+                    "B": lines[2][3:],
+                    "C": lines[3][3:],
+                    "D": lines[4][3:]
+                }
+                correct = lines[5].split(": ")[1].strip().upper()
+
+                questions.append({
+                    "question": question,
+                    "choices": choices,
+                    "correct": correct
+                })
+            except:
+                continue
+
+        return questions

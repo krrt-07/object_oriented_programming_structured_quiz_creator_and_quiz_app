@@ -2,7 +2,41 @@
 # make it randomize the questions.
 import tkinter as tk
 import random
-from quiz_main_menu_base import quiz_base
+from quiz_main_menu_base import quiz
+
+class QuizApp(QuizBase):
+    def __init__(self, master):
+        super().__init__()  # Inherit filename
+        self.master = master
+        self.master.title("Quiz App")
+        self.master.geometry("500x400")
+        self.master.resizable(False, False)
+
+        self.quiz_questions = self.load_questions()
+        random.shuffle(self.quiz_questions)
+        self.current_index = 0
+        self.score = 0
+
+        self.question_label = tk.Label(master, font=("Arial", 16), wraplength=480)
+        self.question_label.pack(pady=20)
+
+        self.choice_buttons = {}
+        for choice in ["A", "B", "C", "D"]:
+            btn = tk.Button(master, font=("Arial", 12), width=40,
+                            command=lambda c=choice: self.check_answer(c))
+            btn.pack(pady=5)
+            self.choice_buttons[choice] = btn
+
+        self.feedback = tk.Label(master, font=("Arial", 14))
+        self.feedback.pack(pady=10)
+
+        self.next_button = tk.Button(master, text="Next Question", command=self.next_question)
+        self.next_button.pack(pady=10)
+
+        self.score_label = tk.Label(master, text="Score: 0", font=("Arial", 12))
+        self.score_label.pack(pady=5)
+
+        self.show_question()
 
 
 # make a condition that will get the questions and answers from the text file.
