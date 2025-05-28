@@ -67,6 +67,10 @@ class QuizApp(QuizBase):
         self.score_label.config(text=f"Score: {self.score}")
         self.next_button.config(state=tk.NORMAL)
 
+    def next_question(self):
+        self.current_index += 1
+        self.show_question()
+        
 # Run the app
 if __name__ == "__main__":
     root = tk.Tk()
